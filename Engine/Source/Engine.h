@@ -31,6 +31,8 @@ public:
 	Input& GetInput() { return *m_input; }
 	Audio& GetAudio() { return *m_audio; }
 	ParticleSystem& GetPS() { return *m_ps; }
+
+	
 private:
 
 	std::unique_ptr<Time> m_time;
