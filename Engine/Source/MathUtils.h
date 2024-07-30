@@ -53,7 +53,7 @@ namespace Math {
 	/// <param name="max"></param>
 	/// <returns>min or max</returns>
 	template<typename T>
-	inline T Clamp(T v, T min, T max) { if (v < min) return min; if (v > max) return max; }
+	inline T Clamp(T v, T min, T max) { if (v < min) return min; if (v > max) return max; return v; }
 
 	inline int Wrap(int value, int max) { return value % max + (value < 0) ? max : 0; }
 

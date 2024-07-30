@@ -25,6 +25,7 @@ public:
 	void Shutdown();
 
 	void Update();
+	bool IsQuit();
 
 	Time& GetTime() { return *m_time; }
 	Renderer& GetRenderer() { return *m_renderer; }
@@ -40,6 +41,6 @@ private:
 	std::unique_ptr<Input> m_input;
 	std::unique_ptr<Audio> m_audio;
 	std::unique_ptr<ParticleSystem> m_ps;
+	bool quit = false;
 };
 
-extern Engine g_engine;

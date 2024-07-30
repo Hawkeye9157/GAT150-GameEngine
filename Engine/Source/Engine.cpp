@@ -1,9 +1,12 @@
 #include "Engine.h"
+#include <crtdbg.h>
 
-Engine g_engine;
 
 bool Engine::Initialize()
 {
+	//eneble memory leak check
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	m_renderer = std::make_unique<Renderer>();
 	m_input = std::make_unique<Input>();
 	m_audio = std::make_unique<Audio>();
@@ -18,13 +21,6 @@ bool Engine::Initialize()
 	return true;
 }
 
-void Engine::Shutdown()
-{
-	m_renderer->Shutdown();
-	m_input->Shutdown();
-	m_audio->Shutdown();
-}
-
 void Engine::Update()
 {
 	m_input->Update();
@@ -32,4 +28,19 @@ void Engine::Update()
 	m_time->Tick();
 	m_ps->Update(m_time->GetDeltaTime());
 
+}
+
+bool Engine::IsQuit()
+{
+	return quit;
+}
+
+void Engine::Shutdown()
+{
+	m_renderer->Shutdown();
+	m_input->Shutdown();
+	m_audio->Shutdown();
+
+	//display memory leaks
+	_CrtMemDumpAllObjectsSince(NULL);
 }
