@@ -1,6 +1,7 @@
 #pragma once
 
-#include "MathUtils.h"
+#include "../Math/Mathutils.h"
+
 #include <cmath>
 #include <stdint.h>
 
