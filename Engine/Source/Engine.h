@@ -13,6 +13,7 @@
 #include "Renderer/Font.h"
 #include "Renderer/Model.h"
 #include "Renderer/Color.h"
+#include "Renderer/Texture.h"
 
 //input
 #include "Input/Input.h"
@@ -30,6 +31,10 @@
 #include "Framework/Actor.h"
 #include "Framework/Scene.h"
 #include "Framework/Game.h"
+
+// ** Resources **
+#include "Resources/Resource.h"
+#include "Resources/ResourceManager.h"
 
 #include <iostream>
 #include <SDL.h>

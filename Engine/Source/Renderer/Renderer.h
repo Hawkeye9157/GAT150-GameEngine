@@ -2,6 +2,8 @@
 
 #include <SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_image.h>
+
 #include <iostream>
 
 
@@ -33,6 +35,8 @@ public:
 
 	
 	friend class Text;
+	friend class Texture;
+	void DrawTexture(Texture* texture, float x, float y, float angle);
 protected:
 
 private:
