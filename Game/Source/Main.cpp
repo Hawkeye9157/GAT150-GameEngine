@@ -17,7 +17,10 @@ int main(int argc, char* argv[]) {
 
 	// create texture, using shared_ptr so texture can be shared
 	res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("metroid.png", engine->GetRenderer());
-	res_t<Texture> texture2 = ResourceManager::Instance().Get<Texture>("metroid.png", engine->GetRenderer());
+	
+	res_t<Font> font = ResourceManager::Instance().Get<Font>("MONIMONI.ttf",12);
+	std::unique_ptr<Text> text = std::make_unique<Text>(font);
+	text->Create(engine->GetRenderer(), "Hello World!", { 1,0,0,1 });
 	
 
 	
@@ -29,9 +32,9 @@ int main(int argc, char* argv[]) {
 		engine->GetRenderer().BeginFrame();
 
 		engine->GetPS().Draw(engine->GetRenderer());
-		for (int i = 0; i < 100; i++) {
-			engine->GetRenderer().DrawTexture(texture.get(), randomf(800), randomf(600), randomf(360));
-		}
+		engine->GetRenderer().DrawTexture(texture.get(), 300, 100, 0);
+		text->Draw(engine->GetRenderer(),400,300);
+		
 		engine->GetRenderer().EndFrame();
 	}
 

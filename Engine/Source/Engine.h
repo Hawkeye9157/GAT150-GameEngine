@@ -5,6 +5,7 @@
 #include "Core/EFile.h"
 
 // ** systems **
+// 
 //renderer
 #include "Renderer/Renderer.h"
 #include "Renderer/Particle.h"
@@ -36,6 +37,7 @@
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
 
+//external libraries
 #include <iostream>
 #include <SDL.h>
 #include <memory>

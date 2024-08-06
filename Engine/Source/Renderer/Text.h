@@ -1,5 +1,6 @@
 #pragma once
 #include "Renderer.h"
+#include "Font.h"
 #include <SDL.h>
 #include <SDL_ttf.h>
 
@@ -8,19 +9,21 @@
 
 class Renderer;
 struct Color;
-class Font;
+
 
 class Text {
 public:
-	friend class Font;
+	
 	Text() = default;
-	Text(Font* font) : m_font{font} {}
+	Text(res_t<Font> font) : m_font{font} {}
 	~Text();
+
+	void SetFont(res_t<Font> font) { m_font = font; }
 
 	bool Create(Renderer& renderer, const std::string& text, const Color& color);
 	void Draw(Renderer& renderer, int x, int y);
 	
 private:
-	Font* m_font{ nullptr };
+	res_t<Font> m_font{ nullptr };
 	SDL_Texture* m_texture{ nullptr };
 };
