@@ -15,6 +15,26 @@ int main(int argc, char* argv[]) {
 	//load assets
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
+
+	std::string s;
+	File::readFile("text.txt", s);
+	std::cout << s << std::endl;
+
+	rapidjson::Document doc;
+	Json::Load("text.txt",doc);
+
+	std::string name;
+	int age;
+	bool isAwake;
+
+	Json::Read(doc, "name", name);
+	Json::Read(doc, "age", age);
+	Json::Read(doc, "isAwake", isAwake);
+	std::cout << name << std::endl;
+	std::cout << age << std::endl;
+	std::cout << isAwake << std::endl;
+
+
 	{
 		// create texture, using shared_ptr so texture can be shared
 		res_t<Texture> texture = ResourceManager::Instance().Get<Texture>("metroid.png", engine->GetRenderer());
@@ -31,11 +51,11 @@ int main(int argc, char* argv[]) {
 		std::unique_ptr<Actor> actor = std::make_unique<Actor>(t);
 
 		//creating texture component
-		std::unique_ptr<TextureComponent> textureComponent = std::make_unique<TextureComponent>();
-		textureComponent->texture = texture;
+		//std::unique_ptr<TextureComponent> textureComponent = std::make_unique<TextureComponent>();
+		//textureComponent->texture = texture;
 		
 		//adding texture component to actor
-		actor->AddComponent(std::move(textureComponent));
+		//actor->AddComponent(std::move(textureComponent));
 
 		while (!engine->IsQuit()) {
 			engine->Update();

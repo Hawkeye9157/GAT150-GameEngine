@@ -3,6 +3,7 @@
 #include "Core/ETimer.h"
 #include "Core/EAssert.h"
 #include "Core/EFile.h"
+#include "Core/Json.h"
 
 // ** systems **
 // 
