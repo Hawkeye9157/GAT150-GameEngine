@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
 	std::cout << File::GetFilePath() << std::endl;
 
 	std::string s;
-	File::readFile("text.txt", s);
-	std::cout << s << std::endl;
+	File::readFile("bread.txt", s);
+	//std::cout << s << std::endl;
 
 	rapidjson::Document doc;
 	Json::Load("text.txt",doc);
@@ -26,13 +26,20 @@ int main(int argc, char* argv[]) {
 	std::string name;
 	int age;
 	bool isAwake;
+	Vector2 position;
+	Color color;
 
-	Json::Read(doc, "name", name);
-	Json::Read(doc, "age", age);
-	Json::Read(doc, "isAwake", isAwake);
+	READ_DATA(doc, name);
+	READ_DATA(doc, age);
+	READ_DATA(doc, isAwake);
+	READ_DATA(doc,position);
+	READ_DATA(doc,color);
+
 	std::cout << name << std::endl;
 	std::cout << age << std::endl;
 	std::cout << isAwake << std::endl;
+	std::cout << position.x << " " << position.y << std::endl;
+	std::cout << color.r << color.g << color.b << color.a << std::endl;
 
 
 	{
@@ -44,7 +51,7 @@ int main(int argc, char* argv[]) {
 
 		//creating text
 		std::unique_ptr<Text> text = std::make_unique<Text>(font);
-		text->Create(engine->GetRenderer(), "Hello World!", { 1,0,0,1 });
+		text->Create(engine->GetRenderer(), s, { 1,0,0,1 });
 
 		//creating actor
 		Transform t{ Vector2{30,30}, 0,0};
@@ -66,7 +73,7 @@ int main(int argc, char* argv[]) {
 
 			engine->GetPS().Draw(engine->GetRenderer());
 			engine->GetRenderer().DrawTexture(texture.get(), 300, 100, 0);
-			text->Draw(engine->GetRenderer(), 400, 300);
+			text->Draw(engine->GetRenderer(), 1, 1);
 			actor->Draw(engine->GetRenderer());
 
 			engine->GetRenderer().EndFrame();
