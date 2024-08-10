@@ -37,6 +37,7 @@ namespace Json {
 
         return true;
     }
+
     bool Read(const rapidjson::Value& value, const std::string& name, float& data)
     {
         if (!value.HasMember(name.c_str())) {
@@ -51,6 +52,7 @@ namespace Json {
 
         return true;
     }
+
     bool Read(const rapidjson::Value& value, const std::string& name, bool& data)
     {
         if (!value.HasMember(name.c_str())) {
@@ -64,6 +66,7 @@ namespace Json {
         data = value[name.c_str()].GetBool();
         return true;
     }
+    
     bool Read(const rapidjson::Value& value, const std::string& name, std::string& data)
     {
         if (!value.HasMember(name.c_str())) {
@@ -77,6 +80,7 @@ namespace Json {
         data = value[name.c_str()].GetString();
         return true;
     }
+    
     bool Read(const rapidjson::Value& value, const std::string& name, Vector2& data)
     {
         // check if the value has the "<name>" and is an array with 2 elements
@@ -103,6 +107,7 @@ namespace Json {
 
         return true;
     }
+    
     bool Read(const rapidjson::Value& value, const std::string& name, Color& data)
     {
         // check if the value has the "<name>" and is an array with 2 elements

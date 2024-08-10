@@ -4,6 +4,8 @@
 class TextureComponent : public RenderComponent {
 public:
 
+	CLASS_DECLARATION(TextureComponent)
+
 	TextureComponent() = default;
 
 	void Initialize() override;

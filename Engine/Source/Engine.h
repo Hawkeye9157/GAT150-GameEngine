@@ -4,9 +4,11 @@
 #include "Core/EAssert.h"
 #include "Core/EFile.h"
 #include "Core/Json.h"
+#include "Core/Factory.h"
+#include "Core/Singleton.h"
 
 // ** systems **
-// 
+
 //renderer
 #include "Renderer/Renderer.h"
 #include "Renderer/Particle.h"

@@ -7,6 +7,13 @@
 
 int main(int argc, char* argv[]) {
 
+	Factory::Instance().Register<Actor>(Actor::GetTypeName());
+	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
+	
+	//auto a = Factory::Instance().Create<Actor>("Actor");
+
+
+
 	//create engine
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
@@ -18,7 +25,7 @@ int main(int argc, char* argv[]) {
 
 	std::string s;
 	File::readFile("bread.txt", s);
-	//std::cout << s << std::endl;
+	std::cout << s << std::endl;
 
 	rapidjson::Document doc;
 	Json::Load("text.txt",doc);
@@ -39,7 +46,7 @@ int main(int argc, char* argv[]) {
 	std::cout << age << std::endl;
 	std::cout << isAwake << std::endl;
 	std::cout << position.x << " " << position.y << std::endl;
-	std::cout << color.r << color.g << color.b << color.a << std::endl;
+	std::cout << color.r <<  " " << color.g << " " <<  color.b << " " << color.a << std::endl;
 
 
 	{
@@ -54,27 +61,33 @@ int main(int argc, char* argv[]) {
 		text->Create(engine->GetRenderer(), s, { 1,0,0,1 });
 
 		//creating actor
-		Transform t{ Vector2{30,30}, 0,0};
-		std::unique_ptr<Actor> actor = std::make_unique<Actor>(t);
+		Transform t{ Vector2{30,30}, 0,0 };
+		auto actor = Factory::Instance().Create<Actor>(Actor::GetTypeName());
+		actor->SetTransform(t);
 
 		//creating texture component
-		//std::unique_ptr<TextureComponent> textureComponent = std::make_unique<TextureComponent>();
-		//textureComponent->texture = texture;
-		
+		auto textureComponent = Factory::Instance().Create<TextureComponent>(TextureComponent::GetTypeName());
+		textureComponent->texture = texture;
+
 		//adding texture component to actor
-		//actor->AddComponent(std::move(textureComponent));
+		actor->AddComponent(std::move(textureComponent));
 
 		while (!engine->IsQuit()) {
+			//input
+
+			//update
 			engine->Update();
 			actor->Update(engine->GetTime().GetDeltaTime());
 
+			//draw
 			engine->GetRenderer().SetColor(0, 0, 0, 0);
 			engine->GetRenderer().BeginFrame();
 
-			engine->GetPS().Draw(engine->GetRenderer());
+
+			
 			engine->GetRenderer().DrawTexture(texture.get(), 300, 100, 0);
-			text->Draw(engine->GetRenderer(), 1, 1);
 			actor->Draw(engine->GetRenderer());
+			text->Draw(engine->GetRenderer(), 1, 1);
 
 			engine->GetRenderer().EndFrame();
 		}

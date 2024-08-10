@@ -11,11 +11,14 @@
 
 
 class Renderer;
+class Scene;
 
-class Actor {
+class Actor : public Object{
 public:
 	Actor() = default;
 	Actor(const Transform& transform) : m_transform{ transform } {}
+
+	CLASS_DECLARATION(Actor)
 	
 	void Initialize();
 
@@ -28,6 +31,8 @@ public:
 	void SetLifespan(float lifespan) { m_lifespan = lifespan; };
 
 	const Transform& GetTransform() { return m_transform; };
+	void SetTransform(const Transform& transform) { m_transform = transform; }
+
 	const std::string GetTag() { return m_tag; };
 	void SetTag(const std::string tag) { m_tag = tag; };
 
