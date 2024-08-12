@@ -3,9 +3,11 @@
 #include "Core/ETimer.h"
 #include "Core/EAssert.h"
 #include "Core/EFile.h"
+#include "Core/EString.h"
 #include "Core/Json.h"
 #include "Core/Factory.h"
 #include "Core/Singleton.h"
+
 
 // ** systems **
 

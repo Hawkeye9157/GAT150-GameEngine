@@ -11,9 +11,9 @@ void Actor::Initialize() {
 void Actor::Update(float dt)
 {
 	//check for lifespan
-	if (m_lifespan != 0) {
-		m_lifespan -= dt;
-		if (m_lifespan <= 0) {
+	if (lifespan != 0) {
+		lifespan -= dt;
+		if (lifespan <= 0) {
 			m_destroyed = true;
 		}
 	}
@@ -45,4 +45,15 @@ void Actor::AddComponent(std::unique_ptr<Component> component)
 {
 	component->owner = this;
 	m_components.push_back(std::move(component));
+}
+
+void Actor::read(const json_t& value) {
+	Object::read(value);
+
+	READ_DATA(value, tag);
+	READ_DATA(value, lifespan);
+}
+
+void Actor::Write(json_t& value) {
+
 }
