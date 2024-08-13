@@ -195,10 +195,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Build\Assets\text.txt">
+    <Text Include="..\Build\Assets\bread.txt">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="..\Build\Assets\bread.txt">
+    <Text Include="..\Build\Assets\Scenes\scene.json">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

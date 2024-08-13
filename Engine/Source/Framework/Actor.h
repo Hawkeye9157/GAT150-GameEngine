@@ -7,18 +7,15 @@
 #include <memory>
 #include <vector>
 
-
-
-
 class Renderer;
-class Scene;
 
 class Actor : public Object{
 public:
 	Actor() = default;
-	Actor(const Transform& transform) : m_transform{ transform } {}
+	Actor(const Transform& transform) : transform{ transform } {}
 
 	CLASS_DECLARATION(Actor)
+	friend class Scene;
 	
 	void Initialize();
 
@@ -27,33 +24,17 @@ public:
 
 	void AddComponent(std::unique_ptr<Component> component);
 
-	void SetDamping(float damping) { m_damping = damping; };
-
-	const Transform& GetTransform() { return m_transform; };
-	void SetTransform(const Transform& transform) { m_transform = transform; }
-
-	virtual void OnCollision(Actor* actor) {}
-
 	
-
-	float GetRadius() { return 0; };
-
-	friend class Scene;
 
 public:
 	std::string tag;
 	float lifespan = 0;
+	bool destroyed = false;
+	Transform transform ;
+	Scene* scene{ nullptr };
 protected:
 	
-	bool m_destroyed = false;
-	
 
-	Transform m_transform;
-	Vector2 m_velocity{0,0};
-	float m_damping{ 0 };
 
-	
-	Scene* m_scene{ nullptr };
-
-	std::vector<std::unique_ptr<Component>> m_components;
+	std::vector<std::unique_ptr<Component>> components;
 };

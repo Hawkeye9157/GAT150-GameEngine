@@ -76,7 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Build\Assets\bread.txt" />
-    <Text Include="..\Build\Assets\text.txt" />
+    <Text Include="..\Build\Assets\Scenes\scene.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

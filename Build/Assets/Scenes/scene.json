@@ -1,0 +1,26 @@
+{
+	"actors": [
+		{
+			"name": "player",
+			"transform": {
+				"position": [ 60, 60 ],
+				"rotation": 0,
+				"scale": 1
+			},
+			"components": [
+				{
+					"type": "TextureComponent",
+					"textureName": "metroid.png"
+				}
+			]
+		},
+		{
+			"name": "enemy",
+			"transform": {
+				"position": [ 320, 450 ],
+				"rotation": 90,
+				"scale": 1
+			}
+		}
+	]
+}
