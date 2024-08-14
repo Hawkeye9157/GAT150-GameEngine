@@ -11,6 +11,15 @@
 				{
 					"type": "TextureComponent",
 					"textureName": "metroid.png"
+				},
+				{
+					"type": "EnginePhysicsComponent",
+					"velocity": [ 0, 0 ],
+					"damping": 0.8
+				},
+				{
+					"type": "PlayerComponent",
+					"speed": 100
 				}
 			]
 		},
@@ -19,8 +28,15 @@
 			"transform": {
 				"position": [ 320, 450 ],
 				"rotation": 90,
-				"scale": 1
-			}
+				"scale": 2
+			},
+			"components": [
+				{
+					"type": "TextureComponent",
+					"textureName": "metroid.png"
+				}
+			]
+
 		}
 	]
 }

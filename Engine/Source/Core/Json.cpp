@@ -30,14 +30,14 @@ namespace Json {
                 std::cerr << "Could not read JSON value: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         if (!value[name.c_str()].IsInt()) {
             if (isRequired) {
                 std::cerr << "Invalid type: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         data = value[name.c_str()].GetInt();
 
@@ -51,14 +51,14 @@ namespace Json {
                 std::cerr << "Could not read JSON value: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
-        if (!value[name.c_str()].IsFloat()) {
+        if (!value[name.c_str()].IsNumber()) {
             if (isRequired) {
                 std::cerr << "Invalid type: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         data = value[name.c_str()].GetFloat();
 
@@ -72,14 +72,14 @@ namespace Json {
                 std::cerr << "Could not read JSON value: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         if (!value[name.c_str()].IsBool()) {
             if (isRequired) {
                 std::cerr << "Invalid type: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         data = value[name.c_str()].GetBool();
         return true;
@@ -92,14 +92,14 @@ namespace Json {
                 std::cerr << "Could not read JSON value: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         if (!value[name.c_str()].IsString()) {
             if (isRequired) {
                 std::cerr << "Invalid type: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
         data = value[name.c_str()].GetString();
         return true;
@@ -114,7 +114,7 @@ namespace Json {
                 std::cerr << "Could not read Json value: " << name << std::endl;
                 return false;
             }
-            
+            return false;
         }
 
         // get json array object

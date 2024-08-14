@@ -3,7 +3,6 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
-
 #include <iostream>
 
 
@@ -32,11 +31,15 @@ public:
 
 	int GetWidth() const { return m_width; }
 	int GetHeight() const { return m_height; }
-
 	
 	friend class Text;
 	friend class Texture;
-	void DrawTexture(Texture* texture, float x, float y, float angle);
+	friend struct Transform;
+	void DrawTexture(class Texture* texture, float x, float y, float angle);
+	void DrawTexture(class Texture* texture, const struct Transform& transform,bool hflip = false);
+	
+	
+
 protected:
 
 private:

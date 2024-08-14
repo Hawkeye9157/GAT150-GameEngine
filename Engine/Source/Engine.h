@@ -44,6 +44,7 @@
 
 // ** components **
 #include "Components/TextureComponent.h"
+#include "Components/EnginePhysicsComponent.h"
 
 //external libraries
 #include <iostream>
