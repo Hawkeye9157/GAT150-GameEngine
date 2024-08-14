@@ -18,7 +18,7 @@ void PlayerComponent::Update(float dt)
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_W)) {
 		direction.y = -1;
 	}
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) {
+	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_S)) {
 		direction.y = 1;
 	}
 	owner->GetComponent<PhysicsComponent>()->ApplyForce(direction * speed);
