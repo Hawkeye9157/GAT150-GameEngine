@@ -12,6 +12,7 @@ int main(int argc, char* argv[]) {
 	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
 	Factory::Instance().Register<EnginePhysicsComponent>(EnginePhysicsComponent::GetTypeName());
 	Factory::Instance().Register<PlayerComponent>(PlayerComponent::GetTypeName());
+	Factory::Instance().Register<TextComponent>(TextComponent::GetTypeName());
 
 	//create engine
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
@@ -22,10 +23,6 @@ int main(int argc, char* argv[]) {
 	//load assets
 	File::SetFilePath("Assets");
 	std::cout << File::GetFilePath() << std::endl;
-
-	std::string buffer;
-	File::readFile("Scenes/scene.json", buffer);
-	std::cout << buffer << std::endl;
 
 	rapidjson::Document doc;
 	Json::Load("Scenes/scene.json",doc);
@@ -44,6 +41,15 @@ int main(int argc, char* argv[]) {
 			engine->Update();
 			scene->Update(engine->GetTime().GetDeltaTime());
 
+			auto* actor = scene->GetActor<Actor>();
+			if (actor) {
+
+				actor->transform.scale = 1.0f + Math::Sin(engine->GetTime().GetTime());
+
+				actor->transform.rotation += 60.0f;
+				//actor->transform.rotation += 90 * engine->GetTime().GetDeltaTime();
+			}
+
 			//draw
 			engine->GetRenderer().SetColor(0, 0, 0, 0);
 			engine->GetRenderer().BeginFrame();
@@ -54,6 +60,7 @@ int main(int argc, char* argv[]) {
 			engine->GetRenderer().EndFrame();
 		}
 	}
+	scene->RemoveAll();
 	ResourceManager::Instance().Clear();
 	engine->Shutdown();
 	return 0;

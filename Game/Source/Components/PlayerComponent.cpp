@@ -9,18 +9,11 @@ void PlayerComponent::Initialize()
 void PlayerComponent::Update(float dt)
 {
 	Vector2 direction{ 0,0 };
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A)) {
-		direction.x = -1;
-	}
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D)) {
-		direction.x = 1;
-	}
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_W)) {
-		direction.y = -1;
-	}
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_S)) {
-		direction.y = 1;
-	}
+	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A) || owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_LEFT)) direction.x = -1;
+	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D) || owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_RIGHT)) direction.x =  1;
+	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_W) || owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_UP)) direction.y = -1;
+	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_S) || owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_DOWN)) direction.y =  1;
+	
 	owner->GetComponent<PhysicsComponent>()->ApplyForce(direction * speed);
 }
 

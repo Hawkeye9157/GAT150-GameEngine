@@ -16,7 +16,9 @@ void Scene::Update(float dt)
 {
 	//update
 	for (auto& actor : actors) {
-		actor->Update(dt);
+		if (actor->isActive) {
+			actor->Update(dt);
+		}
 	}
 
 	//destroy
@@ -26,7 +28,9 @@ void Scene::Update(float dt)
 void Scene::Draw(Renderer& renderer)
 {
 	for (auto& actor : actors) {
-		actor->Draw(renderer);
+		if (actor->isActive) {
+			actor->Draw(renderer);
+		}
 	}
 }
 

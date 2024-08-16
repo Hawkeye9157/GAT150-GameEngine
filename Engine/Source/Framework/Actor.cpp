@@ -3,6 +3,8 @@
 #include "Components/RenderComponent.h"
 #include "Core/Factory.h"
 
+#include <iostream>
+
 void Actor::Initialize() {
 	for (auto& component : components) {
 		component->Initialize();
@@ -61,6 +63,10 @@ void Actor::read(const json_t& value) {
 			READ_DATA(componentValue, type);
 
 			auto component = Factory::Instance().Create<Component>(type);
+			if (!component) {
+				std::cerr << "Could not read value: " << type << std::endl;
+				continue;
+			}
 			component->read(componentValue);
 			AddComponent(move(component));
 		}

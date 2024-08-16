@@ -8,7 +8,6 @@
 #include "Core/Factory.h"
 #include "Core/Singleton.h"
 
-
 // ** systems **
 
 //renderer
@@ -45,13 +44,13 @@
 // ** components **
 #include "Components/TextureComponent.h"
 #include "Components/EnginePhysicsComponent.h"
+#include "Components/TextComponent.h"
 
 //external libraries
 #include <iostream>
 #include <SDL.h>
 #include <memory>
 #include <cassert>
-
 
 class Engine {
 
