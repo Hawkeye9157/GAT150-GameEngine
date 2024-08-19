@@ -6,11 +6,12 @@
 #include "Framework/Actor.h"
 #include <iostream>
 
+FACTORY_REGISTER(TextComponent)
+
 void TextComponent::Initialize()
 {
 	if (!fontName.empty()) {
 		auto font = ResourceManager::Instance().Get<Font>(fontName,fontSize);
-		std::cout << fontName << std::endl;
 		m_text = std::make_unique<Text>(font);
 	}
 }

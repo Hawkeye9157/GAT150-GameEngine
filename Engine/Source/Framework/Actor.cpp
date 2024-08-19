@@ -1,9 +1,10 @@
 #include "Actor.h"
-#include "Engine.h"
 #include "Components/RenderComponent.h"
 #include "Core/Factory.h"
 
 #include <iostream>
+
+FACTORY_REGISTER(Actor)
 
 void Actor::Initialize() {
 	for (auto& component : components) {

@@ -1,39 +1,61 @@
 {
   "actors": [
     {
+      "name": "background",
+      "transform": {
+        "position": [ 0, 0 ],
+        "rotation": 0,
+        "scale": 2
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Green_Nebula.png"
+        }
+      ]
+    },
+    {
       "name": "player",
       "transform": {
         "position": [ 60, 60 ],
-        "rotation": 0,
+        "rotation": 90,
         "scale": 1
       },
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "metroid.png"
+          "textureName": "player_ship.png"
         },
         {
           "type": "EnginePhysicsComponent",
           "velocity": [ 0, 0 ],
-          "damping": 0.8
+          "damping": 1.5
         },
         {
           "type": "PlayerComponent",
-          "speed": 100
+          "speed": 750
+        },
+        {
+          "type": "CircleCollisionComponent",
+          "radius": 24
         }
       ]
     },
     {
       "name": "enemy",
       "transform": {
-        "position": [ 320, 450 ],
-        "rotation": 90,
-        "scale": 2
+        "position": [ 320, 250 ],
+        "rotation": 270,
+        "scale": 1
       },
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "metroid.png"
+          "textureName": "enemy_ship.png"
+        },
+        {
+          "type": "CircleCollisionComponent",
+          "radius": 24
         }
       ]
 

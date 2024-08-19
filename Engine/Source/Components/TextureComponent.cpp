@@ -4,7 +4,7 @@
 #include "Engine.h"
 #include "Resources/ResourceManager.h"
 
-
+FACTORY_REGISTER(TextureComponent)
 
 void TextureComponent::Initialize()
 {

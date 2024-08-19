@@ -5,14 +5,16 @@
 #include <vector>
 #include <cstdlib>
 
+void func1(int i) { std::cout << "func" << i << ":\n"; }
+void func2(int i) { std::cout << "!func" << i << ":\n"; }
+
 
 int main(int argc, char* argv[]) {
 
-	Factory::Instance().Register<Actor>(Actor::GetTypeName());
-	Factory::Instance().Register<TextureComponent>(TextureComponent::GetTypeName());
-	Factory::Instance().Register<EnginePhysicsComponent>(EnginePhysicsComponent::GetTypeName());
-	Factory::Instance().Register<PlayerComponent>(PlayerComponent::GetTypeName());
-	Factory::Instance().Register<TextComponent>(TextComponent::GetTypeName());
+	void(*fp)(int);
+
+	fp = &func1;
+	fp(5);
 
 	//create engine
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
@@ -42,13 +44,6 @@ int main(int argc, char* argv[]) {
 			scene->Update(engine->GetTime().GetDeltaTime());
 
 			auto* actor = scene->GetActor<Actor>();
-			if (actor) {
-
-				actor->transform.scale = 1.0f + Math::Sin(engine->GetTime().GetTime());
-
-				actor->transform.rotation += 60.0f;
-				//actor->transform.rotation += 90 * engine->GetTime().GetDeltaTime();
-			}
 
 			//draw
 			engine->GetRenderer().SetColor(0, 0, 0, 0);

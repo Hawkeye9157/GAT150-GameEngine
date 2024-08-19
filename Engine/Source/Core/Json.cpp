@@ -74,7 +74,7 @@ namespace Json {
             }
             return false;
         }
-        if (!value[name.c_str()].IsBool()) {
+        if (!value[name.c_str()].IsNumber()) {
             if (isRequired) {
                 std::cerr << "Invalid type: " << name << std::endl;
                 return false;

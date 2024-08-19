@@ -8,6 +8,8 @@ public:
 	void Initialize() override;
 	void Update(float dt) override;
 
+	void OnCollisionEnter(Actor*);
+
 public:
 	float speed = 0.0f;
 

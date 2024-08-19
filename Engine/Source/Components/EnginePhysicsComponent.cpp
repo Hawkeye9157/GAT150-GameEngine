@@ -1,5 +1,6 @@
 #include "EnginePhysicsComponent.h"
 
+FACTORY_REGISTER(EnginePhysicsComponent)
 
 void EnginePhysicsComponent::Initialize()
 {

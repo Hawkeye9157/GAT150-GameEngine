@@ -6,6 +6,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <functional>
 
 class Renderer;
 
@@ -22,6 +23,8 @@ public:
 	virtual void Update(float dt);
 	virtual void Draw(Renderer& renderer);
 
+	std::function<void(Actor*)> OnCollisionEnter;
+
 	void AddComponent(std::unique_ptr<Component> component);
 
 	template<typename T>
@@ -36,9 +39,8 @@ public:
 	bool destroyed = false;
 	Transform transform ;
 	Scene* scene{ nullptr };
-protected:
-	
 
+protected:
 
 	std::vector<std::unique_ptr<Component>> components;
 };
