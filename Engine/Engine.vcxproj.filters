@@ -149,6 +149,9 @@
     <ClInclude Include="Source\Components\CircleCollisionComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Physics\Physics.h">
+      <Filter>Source\Physics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine.cpp">
@@ -222,6 +225,9 @@
     </ClCompile>
     <ClCompile Include="Source\Components\CircleCollisionComponent.cpp">
       <Filter>Source\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics\Physics.cpp">
+      <Filter>Source\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

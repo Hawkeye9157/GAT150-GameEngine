@@ -41,6 +41,9 @@
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
 
+// ** Physics **
+#include "Physics/Physics.h"
+
 // ** components **
 #include "Components/TextureComponent.h"
 #include "Components/EnginePhysicsComponent.h"
@@ -69,6 +72,7 @@ public:
 	Input& GetInput() { return *m_input; }
 	Audio& GetAudio() { return *m_audio; }
 	ParticleSystem& GetPS() { return *m_ps; }
+	Physics& GetPhysics() { return *m_physics; }
 
 	
 private:
@@ -78,6 +82,8 @@ private:
 	std::unique_ptr<Input> m_input;
 	std::unique_ptr<Audio> m_audio;
 	std::unique_ptr<ParticleSystem> m_ps;
+	std::unique_ptr<Physics> m_physics;
+
 	bool quit = false;
 };
 

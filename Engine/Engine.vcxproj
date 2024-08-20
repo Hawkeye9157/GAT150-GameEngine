@@ -46,6 +46,7 @@
     <ClInclude Include="Source\Math\Random.h" />
     <ClInclude Include="Source\Math\Transform.h" />
     <ClInclude Include="Source\Math\Vector2.h" />
+    <ClInclude Include="Source\Physics\Physics.h" />
     <ClInclude Include="Source\Renderer\Color.h" />
     <ClInclude Include="Source\Renderer\Font.h" />
     <ClInclude Include="Source\Renderer\Model.h" />
@@ -75,6 +76,7 @@
     <ClCompile Include="Source\Framework\Scene.cpp" />
     <ClCompile Include="Source\Input\Input.cpp" />
     <ClCompile Include="Source\Math\Transform.cpp" />
+    <ClCompile Include="Source\Physics\Physics.cpp" />
     <ClCompile Include="Source\Renderer\Font.cpp" />
     <ClCompile Include="Source\Renderer\Model.cpp" />
     <ClCompile Include="Source\Renderer\Particle.cpp" />
