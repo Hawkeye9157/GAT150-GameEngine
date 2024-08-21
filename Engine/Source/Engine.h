@@ -41,6 +41,9 @@
 #include "Resources/Resource.h"
 #include "Resources/ResourceManager.h"
 
+// ** Event **
+#include "Event/EventSystem.h"
+
 // ** Physics **
 #include "Physics/Physics.h"
 

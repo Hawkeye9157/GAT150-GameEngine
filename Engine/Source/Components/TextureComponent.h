@@ -6,6 +6,8 @@ public:
 
 	CLASS_DECLARATION(TextureComponent)
 
+	CLASS_PROTOTYPE(TextureComponent)
+
 	TextureComponent() = default;
 
 	void Initialize() override;

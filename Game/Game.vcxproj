@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Components\PlayerComponent.cpp" />
+    <ClCompile Include="Source\Components\RocketComponent.cpp" />
     <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\TheGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -32,6 +34,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Components\PlayerComponent.h" />
+    <ClInclude Include="Source\Components\RocketComponent.h" />
+    <ClInclude Include="Source\TheGame.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

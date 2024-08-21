@@ -14,8 +14,12 @@ class Actor : public Object{
 public:
 	Actor() = default;
 	Actor(const Transform& transform) : transform{ transform } {}
+	Actor(const Actor& other);
 
 	CLASS_DECLARATION(Actor)
+
+	CLASS_PROTOTYPE(Actor)
+
 	friend class Scene;
 	
 	void Initialize();

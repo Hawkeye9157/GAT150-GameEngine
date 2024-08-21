@@ -6,9 +6,14 @@ class Text;
 
 class TextComponent : public RenderComponent {
 public:
+	TextComponent() = default;
+	TextComponent(const TextComponent& other);
+
 	void Initialize() override;
 
 	CLASS_DECLARATION(TextComponent)
+
+	CLASS_PROTOTYPE(TextComponent)
 
 	void Update(float dt) override;
 	void Draw(Renderer& renderer) override;

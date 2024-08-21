@@ -4,6 +4,20 @@
 
 #include <iostream>
 
+Actor::Actor(const Actor& other)
+{
+	tag = other.tag;
+	lifespan = other.lifespan;
+	destroyed = other.destroyed;
+
+	transform = other.transform;
+	scene = other.scene;
+
+	for (auto& component : other.components) {
+		auto clone = std::unique_ptr<Component>(dynamic_cast<Component*>(component->Clone().release()));
+		AddComponent(std::move(clone));
+	}
+}
 FACTORY_REGISTER(Actor)
 
 void Actor::Initialize() {
@@ -47,6 +61,7 @@ void Actor::AddComponent(std::unique_ptr<Component> component)
 	component->owner = this;
 	components.push_back(std::move(component));
 }
+
 
 void Actor::read(const json_t& value) {
 	Object::read(value);

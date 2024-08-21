@@ -1,6 +1,7 @@
 #include "Scene.h"
 #include "Actor.h"
 #include "Core/Factory.h"
+
 #include "Components/CollisionComponent.h"
 #include <algorithm>
 
@@ -56,9 +57,10 @@ void Scene::Draw(Renderer& renderer)
 	}
 }
 
-void Scene::AddActor(std::unique_ptr<Actor> actor)
+void Scene::AddActor(std::unique_ptr<Actor> actor, bool initialize)
 {
 	actor->scene = this;
+	if (initialize) actor->Initialize();
 	actors.push_back(std::move(actor));
 }
 
@@ -73,7 +75,16 @@ void Scene::read(const json_t& value)
 		for (auto& actorValue : GET_DATA(value, actors).GetArray()) {
 			auto actor = Factory::Instance().Create<Actor>(Actor::GetTypeName());
 			actor->read(actorValue);
+			bool prototype = false;
+			READ_DATA(actorValue, prototype);
+			if (prototype) {
+				std::string name = actor->name;
+				Factory::Instance().RegisterPrototype<Actor>(name, std::move(actor));
+			}
+			else {
+
 			AddActor(move(actor));
+			}
 		}
 	}
 }
