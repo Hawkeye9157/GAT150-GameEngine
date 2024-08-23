@@ -4,7 +4,7 @@
 
 using id_t = std::string;
 
-struct Event {
+class Event {
 public:
 	using data_t = std::variant<int, bool, float, std::string>;
 

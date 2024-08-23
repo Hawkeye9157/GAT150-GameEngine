@@ -24,12 +24,13 @@
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "player_ship.png"
+          "textureName": "chris.jpg"
         },
         {
-          "type": "EnginePhysicsComponent",
-          "velocity": [ 0, 0 ],
-          "damping": 1.5
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.5,
+          "size": [ 32, 32 ],
+          "gravityScale": 0
         },
         {
           "type": "PlayerComponent",
@@ -55,7 +56,8 @@
         {
           "type": "EnginePhysicsComponent",
           "velocity": [ 0, 0 ],
-          "damping": 0.0
+          "damping": 0.0,
+          "angularDamping": 0.85
         },
         {
           "type": "RocketComponent",
@@ -73,11 +75,13 @@
       "components": [
         {
           "type": "TextureComponent",
-          "textureName": "enemy_ship.png"
+          "textureName": "aro.png"
         },
         {
-          "type": "CircleCollisionComponent",
-          "radius": 24
+          "type": "Box2DPhysicsComponent",
+          "damping": 0.0,
+          "size": [ 32, 32 ],
+          "gravityScale": 0
         }
       ]
 

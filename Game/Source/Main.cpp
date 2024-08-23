@@ -17,12 +17,12 @@ int main(int argc, char* argv[]) {
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 	engine->Initialize();
 
+	//create game
 	std::unique_ptr<TheGame> game = std::make_unique<TheGame>(engine.get());
 	game->Initialize();
 
 
 		while (!engine->IsQuit()) {
-			//input
 
 			//update
 			engine->Update();
@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
 			engine->GetRenderer().EndFrame();
 		}
 	
+	//free's up memory before closing
 	game->ShutDown();
 	ResourceManager::Instance().Clear();
 	engine->Shutdown();

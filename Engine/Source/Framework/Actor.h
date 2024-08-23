@@ -28,6 +28,7 @@ public:
 	virtual void Draw(Renderer& renderer);
 
 	std::function<void(Actor*)> OnCollisionEnter;
+	std::function<void(Actor*)> OnCollisionExit;
 
 	void AddComponent(std::unique_ptr<Component> component);
 
@@ -43,6 +44,7 @@ public:
 	bool destroyed = false;
 	Transform transform ;
 	Scene* scene{ nullptr };
+	bool active = false;
 
 protected:
 

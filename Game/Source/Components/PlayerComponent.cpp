@@ -10,31 +10,39 @@ void PlayerComponent::Initialize()
 
 void PlayerComponent::Update(float dt)
 {
-	Vector2 direction{ 0,0 };
+
+	float rotate = 0;
+	float thrust = 0;
+
 	//left movement
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_A)
-		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_LEFT)) direction.x = -1;
+		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_LEFT)) rotate = -1;
 	//right movement
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_D) 
-		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_RIGHT)) direction.x =  1;
+		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_RIGHT)) rotate =  1;
 	//up movement
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_W) 
-		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_UP)) direction.y = -1;
+		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_UP)) thrust = 1;
 	//down movement
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_S) 
-		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_DOWN)) direction.y =  1;
+		|| owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_DOWN)) thrust =  -1;
+
+	owner->GetComponent<PhysicsComponent>()->ApplyTorque(rotate * 90 * dt);
+	Vector2 direction = Vector2{ 0,-1 }.Rotate(Math::DegToRad(owner->transform.rotation));
+	owner->GetComponent<PhysicsComponent>()->ApplyForce(direction * speed * thrust);
+
+
 	//shoot
 	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_SPACE)) {
 		auto rocket = Factory::Instance().Create<Actor>("rocket");
-		owner->scene->AddActor(std::move(rocket),true);
 
 		rocket->transform.position = owner->transform.position;
 		rocket->transform.rotation = owner->transform.rotation;
 
+		owner->scene->AddActor(std::move(rocket),true);
 		
 	}
 	
-	owner->GetComponent<PhysicsComponent>()->ApplyForce(direction * speed);
 }
 
 void PlayerComponent::OnCollisionEnter(Actor*)

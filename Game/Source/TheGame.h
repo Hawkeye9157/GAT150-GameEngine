@@ -1,6 +1,7 @@
 #pragma once
 #include "Framework/Game.h"
 #include "Event/Observer.h"
+#include "Event/Event.h"
 #include <memory>
 
 class TheGame : public Game, Observer {
@@ -8,6 +9,7 @@ public:
 
 	TheGame() = default;
 	TheGame(Engine* engine) : Game{ engine } {}
+	
 
 	bool Initialize() override;
 	void ShutDown() override;

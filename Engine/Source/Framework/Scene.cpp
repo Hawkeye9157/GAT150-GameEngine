@@ -22,30 +22,31 @@ void Scene::Update(float dt)
 			actor->Update(dt);
 		}
 	}
-	//collision
-	for (auto& actor1 : actors) {
-		CollisionComponent* collision1 = actor1->GetComponent<CollisionComponent>();
-		//checks if collidible
-		if (collision1 == nullptr) continue;
-
-		for (auto& actor2 : actors) {
-			//don't collide with itself
-			if (actor1 == actor2) continue;
-			
-			//checks if collidible
-			CollisionComponent* collision2 = actor2->GetComponent<CollisionComponent>();
-			if (collision2 == nullptr) continue;
-
-			if (collision1->CheckCollision(collision2)) {
-				if(actor1->OnCollisionEnter) actor1->OnCollisionEnter(actor2.get());
-				if(actor2->OnCollisionEnter) actor2->OnCollisionEnter(actor1.get());
-			}
-
-		}
-	}
-
+	
 	//destroy
 	std::_Erase_remove_if(actors, [](auto& actor) { return actor->destroyed; });
+	
+	//collision
+	//for (auto& actor1 : actors) {
+	//	CollisionComponent* collision1 = actor1->GetComponent<CollisionComponent>();
+	//	//checks if collidible
+	//	if (collision1 == nullptr) continue;
+	//
+	//	for (auto& actor2 : actors) {
+	//		//don't collide with itself
+	//		if (actor1 == actor2) continue;
+	//		
+	//		//checks if collidible
+	//		CollisionComponent* collision2 = actor2->GetComponent<CollisionComponent>();
+	//		if (collision2 == nullptr) continue;
+	//
+	//		if (collision1->CheckCollision(collision2)) {
+	//			if(actor1->OnCollisionEnter) actor1->OnCollisionEnter(actor2.get());
+	//			if(actor2->OnCollisionEnter) actor2->OnCollisionEnter(actor1.get());
+	//		}
+	//
+	//	}
+	//}
 }
 
 void Scene::Draw(Renderer& renderer)

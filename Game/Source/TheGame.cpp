@@ -12,8 +12,8 @@ bool TheGame::Initialize()
     m_scene->read(doc);
     m_scene->Initialize();
 
-    ADD_OBSERVER(PlayerDead, TheGame::OnPlayerDead)
-    ADD_OBSERVER(AddPoints, TheGame::OnAddPoints)
+    //ADD_OBSERVER(PlayerDead, TheGame::OnPlayerDead)
+    //ADD_OBSERVER(AddPoints, TheGame::OnAddPoints)
     
     
 
@@ -42,5 +42,5 @@ void TheGame::OnPlayerDead(const Event& event)
 
 void TheGame::OnAddPoints(const Event& event)
 {
-    m_score += std::get<int>(event.data);
+    //
 }
