@@ -14,8 +14,11 @@ void RocketComponent::Update(float dt)
 	owner->GetComponent<PhysicsComponent>()->SetVelocity(owner->transform.Forward() * speed);
 }
 
-void RocketComponent::OnCollisionEnter(Actor*)
+void RocketComponent::OnCollisionEnter(Actor* actor)
 {
+	if (!actor->destroyed && (actor->name == "enemy")) {
+		actor->destroyed = true;
+	}
 }
 
 void RocketComponent::read(const json_t& value)

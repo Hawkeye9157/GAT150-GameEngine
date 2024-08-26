@@ -82,7 +82,7 @@ void Physics::UpdateCollision()
 		Actor* actorB = static_cast<Actor*>(b2Body_GetUserData(bodyIdB));
 		if (!actorB || actorB->destroyed || !actorB->active) continue;
 
-		if (actorA->OnCollisionExit) actorA->OnCollisionEnter(actorB);
-		if (actorB->OnCollisionExit) actorB->OnCollisionEnter(actorA);
+		if (actorA->OnCollisionEnter) actorA->OnCollisionEnter(actorB);
+		if (actorB->OnCollisionEnter) actorB->OnCollisionEnter(actorA);
 	}
 }

@@ -8,7 +8,7 @@ RigidBody::RigidBody(const Transform& transform, const Vector2& size, const def_
 	// set body definition
 	bodyDef.type = (def.isDynamic) ? b2_dynamicBody : b2_staticBody;
 	bodyDef.position = ConvertVec2(Physics::ScreenToWorld(transform.position));
-	bodyDef.rotation = b2MakeRot(transform.rotation);
+	bodyDef.rotation = b2MakeRot(Math::DegToRad(transform.rotation));
 	bodyDef.fixedRotation = def.constrainAngle;
 	bodyDef.gravityScale = def.gravityScale;
 	bodyDef.linearDamping = def.damping;

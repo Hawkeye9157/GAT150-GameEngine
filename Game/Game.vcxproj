@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Components\CharacterComponent.cpp" />
     <ClCompile Include="Source\Components\PlayerComponent.cpp" />
     <ClCompile Include="Source\Components\RocketComponent.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -33,11 +34,14 @@
     <Text Include="..\Build\Assets\Scenes\scene.json" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Components\CharacterComponent.h" />
     <ClInclude Include="Source\Components\PlayerComponent.h" />
     <ClInclude Include="Source\Components\RocketComponent.h" />
     <ClInclude Include="Source\TheGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Assets\Scenes\game.json" />
+    <None Include="..\Build\Assets\Scenes\tilemap.json" />
     <None Include="cpp.hint" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
