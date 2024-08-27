@@ -5,8 +5,6 @@
 #include <vector>
 #include <cstdlib>
 
-
-
 int main(int argc, char* argv[]) {
 
 	//load assets

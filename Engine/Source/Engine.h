@@ -50,6 +50,7 @@
 
 // ** components **
 #include "Components/TextureComponent.h"
+#include "Components/TextureAnimationComponent.h"
 #include "Components/EnginePhysicsComponent.h"
 #include "Components/TextComponent.h"
 
@@ -78,7 +79,6 @@ public:
 	ParticleSystem& GetPS() { return *m_ps; }
 	Physics& GetPhysics() { return *m_physics; }
 
-	
 private:
 
 	std::unique_ptr<Time> m_time;

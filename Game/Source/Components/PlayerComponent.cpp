@@ -30,18 +30,6 @@ void PlayerComponent::Update(float dt)
 	owner->GetComponent<PhysicsComponent>()->ApplyTorque(rotate * 90 * dt);
 	Vector2 direction = Vector2{ 0,-1 }.Rotate(Math::DegToRad(owner->transform.rotation));
 	owner->GetComponent<PhysicsComponent>()->ApplyForce(direction * speed * thrust);
-
-
-	//shoot
-	if (owner->scene->engine->GetInput().GetKeyDown(SDL_SCANCODE_SPACE)) {
-		auto rocket = Factory::Instance().Create<Actor>("rocket");
-
-		rocket->transform.position = owner->transform.position;
-		rocket->transform.rotation = owner->transform.rotation;
-
-		owner->scene->AddActor(std::move(rocket),true);
-		
-	}
 	
 }
 

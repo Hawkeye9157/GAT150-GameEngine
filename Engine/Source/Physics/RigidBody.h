@@ -5,6 +5,11 @@
 class RigidBody
 {
 public:
+	enum Shape {
+		BOX,
+		CAPSULE,
+		CIRCLE
+	};
 	struct def_t
 	{
 		// body
@@ -15,10 +20,12 @@ public:
 		bool  isDynamic = true;
 
 		// shape
-		float friction = 0.0f;
+		float friction = 0.5f;
 		float restitution = 0.5f;
 		float density = 1.0f;
 		bool isSensor = false;
+
+		Shape shape = Shape::BOX;
 
 		class Actor* actor{ nullptr };
 	};

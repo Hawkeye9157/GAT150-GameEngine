@@ -46,7 +46,8 @@
         },
         {
           "type": "Box2DPhysicsComponent",
-          "isDynamic": false
+          "isDynamic": false,
+          "restitution": 0.0
         }
       ]
     },
@@ -64,8 +65,15 @@
           "type": "TilemapComponent",
           "numColums": 13,
           "numRows": 10,
-          "tileSize": [ 64, 64 ],
-          "tileNames": [ "", "tile01", "tile02" ],
+          "tileSize": [
+            64,
+            64
+          ],
+          "tileNames": [
+            "",
+            "tile01",
+            "tile02"
+          ],
           "tiles": [
             0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -78,7 +86,6 @@
             1,1,1,1,1,1,1,1,1,1,1,1,1,
             1,1,1,1,1,1,1,1,1,1,1,1,1
           ]
-
         }
       ]
     }
