@@ -34,7 +34,7 @@ void TextureComponent::Draw(Renderer& renderer)
 
 void TextureComponent::read(const json_t& value)
 {
-	READ_DATA_REQUIRED(value, textureName);
+	READ_DATA(value, textureName);
 	READ_DATA(value, source);
 }
 

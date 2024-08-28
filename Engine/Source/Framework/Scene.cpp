@@ -24,7 +24,7 @@ void Scene::Update(float dt)
 	}
 	
 	//destroy
-	std::_Erase_remove_if(actors, [](auto& actor) { return actor->destroyed; });
+	std::erase_if(actors, [](auto& actor) { return actor->destroyed; });
 	
 	//collision
 	//for (auto& actor1 : actors) {
@@ -65,9 +65,13 @@ void Scene::AddActor(std::unique_ptr<Actor> actor, bool initialize)
 	actors.push_back(std::move(actor));
 }
 
-void Scene::RemoveAll()
+void Scene::RemoveAll(bool force)
 {
-	actors.clear();
+	std::erase_if(actors, [](auto& actor) { return actor->persistent; });
+
+	if (force) {
+		actors.clear();
+	}
 }
 
 void Scene::read(const json_t& value)

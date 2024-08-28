@@ -1,0 +1,92 @@
+{
+  "actors": [
+    {
+      "name": "enemy",
+      "transform": {
+        "position": [ 700, 100 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "enemy",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "skull",
+          "animations": [
+            {
+              "name": "skull",
+              "fps": 12,
+              "numColumns": 5,
+              "numRows": 4,
+              "startFrame": 1,
+              "endFrame": 20,
+              "loop": true,
+              "textureName": "Textures/skull.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 0.5, 0.5 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "direction": -10
+        }
+      ]
+    },
+    {
+      "name": "soul",
+      "transform": {
+        "position": [ 500, 300 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "soul",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "soul",
+          "animations": [
+            {
+              "name": "soul",
+              "fps": 12,
+              "numColumns": 4,
+              "numRows": 1,
+              "startFrame": 1,
+              "endFrame": 4,
+              "textureName": "Textures/soul.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 0.5, 0.5 ],
+          "constraintAngle": true
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 1,
+          "direction": -10
+        },
+        {
+          "type": "AudioComponent",
+          "soundName": "Audio/sound effect",
+          "playOnStart": false,
+          "loop": false,
+          "volume": 1,
+          "pitch": 1
+        }
+      ]
+    }
+  ]
+}

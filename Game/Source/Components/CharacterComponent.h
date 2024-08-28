@@ -19,6 +19,7 @@ public:
 
 	class PhysicsComponent* physics{ nullptr };
 	class TextureAnimationComponent* animation{ nullptr };
+	class TextComponent* scoreText{ nullptr };
 
-	int groundCount = 0;
+	int score = 0;
 };

@@ -4,11 +4,14 @@
 
 #include <iostream>
 
+FACTORY_REGISTER(Actor)
+
 Actor::Actor(const Actor& other)
 {
 	tag = other.tag;
 	lifespan = other.lifespan;
 	destroyed = other.destroyed;
+	persistent = other.persistent;
 
 	transform = other.transform;
 	scene = other.scene;
@@ -18,7 +21,6 @@ Actor::Actor(const Actor& other)
 		AddComponent(std::move(clone));
 	}
 }
-FACTORY_REGISTER(Actor)
 
 void Actor::Initialize() {
 	for (auto& component : components) {

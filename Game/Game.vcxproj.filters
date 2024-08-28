@@ -33,11 +33,9 @@
     <ClCompile Include="Source\Components\CharacterComponent.cpp">
       <Filter>Source\Components</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\Build\Assets\Scenes\scene.json">
-      <Filter>Resource Files</Filter>
-    </Text>
+    <ClCompile Include="Source\Components\EnemyComponent.cpp">
+      <Filter>Source\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Components\PlayerComponent.h">
@@ -52,6 +50,9 @@
     <ClInclude Include="Source\Components\CharacterComponent.h">
       <Filter>Source\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Components\EnemyComponent.h">
+      <Filter>Source\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
@@ -59,6 +60,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\Build\Assets\Scenes\game.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Build\Assets\Scenes\enemy.json">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

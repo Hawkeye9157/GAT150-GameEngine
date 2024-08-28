@@ -7,7 +7,7 @@ bool TheGame::Initialize()
 {
 
     m_scene = std::make_unique<Scene>(m_engine);
-    std::string scenenames[] = { "scenes/tilemap.json","Scenes/scene.json","Scenes/game.json"};
+    std::string scenenames[] = {"scenes/game.json", "scenes/enemy.json"};
     for (auto sceneName : scenenames) {
         rapidjson::Document doc;
         Json::Load(sceneName, doc);
@@ -16,12 +16,7 @@ bool TheGame::Initialize()
     }
 
     m_scene->Initialize();
-
-    //ADD_OBSERVER(PlayerDead, TheGame::OnPlayerDead)
-    //ADD_OBSERVER(AddPoints, TheGame::OnAddPoints)
-    
-    
-
+  
     return true;
 }
 
@@ -42,7 +37,7 @@ void TheGame::Draw(Renderer& renderer)
 
 void TheGame::OnPlayerDead(const Event& event)
 {
-    std::cout << "Player Dead\n";
+    //
 }
 
 void TheGame::OnAddPoints(const Event& event)

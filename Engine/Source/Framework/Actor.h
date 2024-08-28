@@ -17,7 +17,6 @@ public:
 	Actor(const Actor& other);
 
 	CLASS_DECLARATION(Actor)
-
 	CLASS_PROTOTYPE(Actor)
 
 	friend class Scene;

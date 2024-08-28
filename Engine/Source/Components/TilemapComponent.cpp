@@ -11,7 +11,7 @@ void TilemapComponent::Initialize() {
 
 		std::string tileName = tileNames[tileIndex];
 		auto tile = Factory::Instance().Create<Actor>(tileName);
-		if (tile) {
+		if (tile) { 
 			int x = i % numColums;
 			int y = i / numColums;
 
