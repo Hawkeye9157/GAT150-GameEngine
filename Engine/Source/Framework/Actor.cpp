@@ -1,6 +1,7 @@
 #include "Actor.h"
 #include "Components/RenderComponent.h"
 #include "Core/Factory.h"
+#include "Engine.h"
 
 #include <iostream>
 
@@ -41,6 +42,7 @@ void Actor::Update(float dt)
 	for (auto& component : components) {
 		component->Update(dt);
 	}
+	
 }
 
 void Actor::Draw(Renderer& renderer)

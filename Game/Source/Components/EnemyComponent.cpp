@@ -12,6 +12,8 @@ void EnemyComponent::Initialize()
 	physics = owner->GetComponent<PhysicsComponent>();
 	animation = owner->GetComponent<TextureAnimationComponent>();
 
+	speed = random(5);
+
 }
 
 void EnemyComponent::Update(float dt)
@@ -22,8 +24,10 @@ void EnemyComponent::Update(float dt)
 	 direction.x = -1;
 	physics->ApplyForce(direction * speed);
 
+	speed += randomf(0.25f);
 
-
+	owner->transform.position.x = Math::Wrap(owner->transform.position.x, (float)owner->scene->engine->GetRenderer().GetWidth());
+	owner->transform.position.y = Math::Wrap(owner->transform.position.y, (float)owner->scene->engine->GetRenderer().GetWidth());
 	
 }
 
@@ -31,7 +35,7 @@ void EnemyComponent::OnCollisionEnter(Actor* actor)
 {
 	std::cout << "collision" << std::endl;
 	if (actor->tag == "player") {
-
+		actor->Deactivate();
 	}
 }
 

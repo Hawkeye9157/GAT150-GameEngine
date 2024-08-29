@@ -22,6 +22,8 @@ public:
 	void SetPosition(const Vector2& position) override;
 	void SetVelocity(const Vector2& velocity) override;
 
+	void CheckCollision();
+
 public:
 	RigidBody::def_t rigidBodyDef;
 	Vector2 size{ 0, 0 };

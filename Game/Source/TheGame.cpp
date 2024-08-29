@@ -16,6 +16,8 @@ bool TheGame::Initialize()
     }
 
     m_scene->Initialize();
+
+   
   
     return true;
 }
@@ -33,6 +35,9 @@ void TheGame::Update(float dt)
 void TheGame::Draw(Renderer& renderer)
 {
     m_scene->Draw(renderer);
+
+    std::string text = "Score: " + std::to_string(points);
+    
 }
 
 void TheGame::OnPlayerDead(const Event& event)
@@ -42,5 +47,9 @@ void TheGame::OnPlayerDead(const Event& event)
 
 void TheGame::OnAddPoints(const Event& event)
 {
-    //
+    points += 100;
+}
+
+void TheGame::EndGame()
+{
 }

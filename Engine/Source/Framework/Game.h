@@ -20,6 +20,8 @@ public:
 	int GetLives() const { return m_lives; }
 	void SetLives(int lives) { m_lives = lives; }
 
+	virtual void EndGame() = 0;
+
 protected:
 	int m_lives = 0;
 	int m_score = 0;

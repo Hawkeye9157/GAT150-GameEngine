@@ -2,6 +2,7 @@
 #include "Engine.h"
 #include <string>
 #include "EnemyComponent.h"
+#include <Components/CircleCollisionComponent.h>
 
 FACTORY_REGISTER(CharacterComponent)
 
@@ -30,6 +31,10 @@ void CharacterComponent::Update(float dt)
 		&& !owner->scene->engine->GetInput().GetPrevKeyDown(SDL_SCANCODE_SPACE)) physics->SetVelocity(Vector2{ 0,-150 });
 
 	physics->ApplyForce(direction * speed);
+	
+	if (owner->transform.position.x < 0 || owner->transform.position.x > 800 || owner->transform.position.y < 0 || owner->transform.position.x > 600) {
+		owner->scene->GetGame()->EndGame();
+	}
 	
 }
 

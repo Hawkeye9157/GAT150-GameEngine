@@ -1,5 +1,6 @@
 #include "Box2DPhysicsComponent.h"
 #include "Engine.h"
+#include "../../Game/Source/Components/EnemyComponent.h"
 
 FACTORY_REGISTER(Box2DPhysicsComponent)
 
@@ -27,6 +28,12 @@ void Box2DPhysicsComponent::Update(float dt)
 	owner->transform.position = m_rigidBody->GetPosition();
 	owner->transform.rotation = m_rigidBody->GetAngle();
 	velocity = m_rigidBody->GetVelocity();
+	if (owner->GetComponent<EnemyComponent>()) {
+		owner->transform.position.x = Math::Wrap(owner->transform.position.x, (float)owner->scene->engine->GetRenderer().GetWidth());
+		owner->transform.position.y = Math::Wrap(owner->transform.position.y, (float)owner->scene->engine->GetRenderer().GetWidth());
+		SetPosition(Vector2{ owner->transform.position.x,owner->transform.position.y });
+	}
+	
 }
 
 void Box2DPhysicsComponent::ApplyForce(const Vector2& force)
@@ -48,6 +55,8 @@ void Box2DPhysicsComponent::SetVelocity(const Vector2& velocity)
 {
 	m_rigidBody->SetVelocity(velocity);
 }
+
+
 
 void Box2DPhysicsComponent::Write(json_t& value)
 {
