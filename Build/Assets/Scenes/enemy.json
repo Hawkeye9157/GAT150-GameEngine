@@ -1,9 +1,9 @@
 {
   "actors": [
     {
-      "name": "enemy",
+      "name": "enemy1",
       "transform": {
-        "position": [ 700, 100 ],
+        "position": [ 750, 50 ],
         "rotation": 0,
         "scale": 0.5,
         "tag": "enemy",
@@ -31,7 +31,167 @@
           "damping": 0,
           "gravityScale": 0,
           "shape": "circle",
-          "scale": [ 0.5, 0.5 ]
+          "scale": [ 1, 1 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "direction": -10
+        }
+      ]
+    },
+    {
+      "name": "enemy2",
+      "transform": {
+        "position": [ 800, 100 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "enemy",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "skull",
+          "animations": [
+            {
+              "name": "skull",
+              "fps": 12,
+              "numColumns": 5,
+              "numRows": 4,
+              "startFrame": 1,
+              "endFrame": 20,
+              "loop": true,
+              "textureName": "Textures/skull.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 1,1 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "direction": -10
+        }
+      ]
+    },
+    {
+      "name": "enemy3",
+      "transform": {
+        "position": [ 800, 200 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "enemy",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "skull",
+          "animations": [
+            {
+              "name": "skull",
+              "fps": 12,
+              "numColumns": 5,
+              "numRows": 4,
+              "startFrame": 1,
+              "endFrame": 20,
+              "loop": true,
+              "textureName": "Textures/skull.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 1,1 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "direction": -10
+        }
+      ]
+    },
+    {
+      "name": "enemy4",
+      "transform": {
+        "position": [ 800, 300 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "enemy",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "skull",
+          "animations": [
+            {
+              "name": "skull",
+              "fps": 12,
+              "numColumns": 5,
+              "numRows": 4,
+              "startFrame": 1,
+              "endFrame": 20,
+              "loop": true,
+              "textureName": "Textures/skull.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 1,1 ]
+        },
+        {
+          "type": "EnemyComponent",
+          "speed": 5,
+          "direction": -10
+        }
+      ]
+    },
+    {
+      "name": "enemy5",
+      "transform": {
+        "position": [ 800, 400 ],
+        "rotation": 0,
+        "scale": 0.5,
+        "tag": "enemy",
+        "prototype": true
+      },
+      "components": [
+        {
+          "type": "TextureAnimationComponent",
+          "animationName": "skull",
+          "animations": [
+            {
+              "name": "skull",
+              "fps": 12,
+              "numColumns": 5,
+              "numRows": 4,
+              "startFrame": 1,
+              "endFrame": 20,
+              "loop": true,
+              "textureName": "Textures/skull.png"
+            }
+          ]
+        },
+        {
+          "type": "Box2DPhysicsComponent",
+          "damping": 0,
+          "gravityScale": 0,
+          "shape": "circle",
+          "scale": [ 1,1 ]
         },
         {
           "type": "EnemyComponent",
@@ -70,21 +230,21 @@
           "damping": 0,
           "gravityScale": 0,
           "shape": "circle",
-          "scale": [ 0.5, 0.5 ],
+          "scale": [ 1,1 ],
           "constraintAngle": true
         },
         {
           "type": "EnemyComponent",
-          "speed": 1,
-          "direction": -10
+          "speed": 0,
+          "direction": 0
         },
         {
           "type": "AudioComponent",
-          "soundName": "Audio/sound effect",
+          "soundName": "Audio/coin.mp3",
           "playOnStart": false,
           "loop": false,
           "volume": 1,
-          "pitch": 1
+          "pitch": 2
         }
       ]
     }

@@ -22,6 +22,8 @@ void EnemyComponent::Update(float dt)
 	 direction.x = -1;
 	physics->ApplyForce(direction * speed);
 
+
+
 	
 }
 
