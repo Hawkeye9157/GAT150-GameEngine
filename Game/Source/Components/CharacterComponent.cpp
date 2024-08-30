@@ -32,7 +32,7 @@ void CharacterComponent::Update(float dt)
 
 	physics->ApplyForce(direction * speed);
 	
-	if (owner->transform.position.x < 0 || owner->transform.position.x > 800 || owner->transform.position.y < 0 || owner->transform.position.x > 600) {
+	if (owner->transform.position.x < 0 || owner->transform.position.x > 800 || owner->transform.position.y < 0 || owner->transform.position.y > 600) {
 		owner->scene->GetGame()->EndGame();
 	}
 	

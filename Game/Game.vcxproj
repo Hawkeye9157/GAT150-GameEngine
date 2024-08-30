@@ -39,6 +39,7 @@
     <ClInclude Include="Source\TheGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Build\Assets\Scenes\end.json" />
     <None Include="..\Build\Assets\Scenes\enemy.json" />
     <None Include="..\Build\Assets\Scenes\game.json" />
     <None Include="..\Build\Assets\Scenes\tilemap.json" />

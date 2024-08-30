@@ -1,0 +1,27 @@
+{
+  "actors": [
+    {
+      "name": "background",
+      "transform": {
+        "position": [ 400, 300 ],
+        "rotation": 0,
+        "scale": 2.3
+      },
+      "components": [
+        {
+          "type": "TextureComponent",
+          "textureName": "Textures/gameover.png"
+        },
+        {
+          "type": "AudioComponent",
+          "soundName": "Audio/end.mp3",
+          "playOnStart": true,
+          "loop": true,
+          "volume": 1,
+          "pitch": 1
+        }
+      ]
+
+    }
+  ]
+}

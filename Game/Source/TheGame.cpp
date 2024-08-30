@@ -7,6 +7,7 @@ bool TheGame::Initialize()
 {
 
     m_scene = std::make_unique<Scene>(m_engine);
+    m_scene->SetGame(this);
     std::string scenenames[] = {"scenes/game.json", "scenes/enemy.json"};
     for (auto sceneName : scenenames) {
         rapidjson::Document doc;
@@ -52,4 +53,17 @@ void TheGame::OnAddPoints(const Event& event)
 
 void TheGame::EndGame()
 {
+    m_scene->RemoveAll();
+
+    m_engine->GetRenderer().SetColor(0,0,0,0);
+    
+    std::string scenenames[] = {"Scenes/end.json"};
+    for (auto sceneName : scenenames) {
+        rapidjson::Document doc;
+        Json::Load(sceneName, doc);
+        m_scene->read(doc);
+
+    }
+
+    m_scene->Initialize();
 }

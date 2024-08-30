@@ -16,7 +16,7 @@
           "animations": [
             {
               "name": "skull",
-              "fps": 12,
+              "fps": 60,
               "numColumns": 5,
               "numRows": 4,
               "startFrame": 1,

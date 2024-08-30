@@ -30,6 +30,7 @@ public:
 	void Initialize() override;
 
 	Game* GetGame() { return game;};
+	void SetGame(Game* game);
 public:
 	Engine* engine{ nullptr };
 	Game* game{ nullptr };

@@ -99,3 +99,8 @@ void Scene::Write(json_t& value)
 	//
 }
 
+void Scene::SetGame(Game* newGame)
+{
+	game = newGame;
+}
+
