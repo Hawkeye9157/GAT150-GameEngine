@@ -22,4 +22,5 @@ public:
 	class TextComponent* scoreText{ nullptr };
 
 	int score = 0;
+	bool gameover = false;
 };

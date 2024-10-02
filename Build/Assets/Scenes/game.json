@@ -17,7 +17,7 @@
           "soundName": "Audio/spooky.wav",
           "playOnStart": true,
           "loop": true,
-          "volume": 1,
+          "volume": 0.25,
           "pitch": 1
         }
       ]

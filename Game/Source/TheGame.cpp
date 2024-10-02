@@ -12,6 +12,7 @@ bool TheGame::Initialize()
     for (auto sceneName : scenenames) {
         rapidjson::Document doc;
         Json::Load(sceneName, doc);
+        std::cout << sceneName << std::endl;
         m_scene->read(doc);
 
     }
@@ -54,8 +55,9 @@ void TheGame::OnAddPoints(const Event& event)
 void TheGame::EndGame()
 {
     m_scene->RemoveAll();
-
+    m_scene->GetActor<Actor>("player")->transform.position = Vector2{ 400,300 };
     m_engine->GetRenderer().SetColor(0,0,0,0);
+    m_engine->GetRenderer().DrawRect(0, 0, m_engine->GetRenderer().GetWidth(), m_engine->GetRenderer().GetWidth());
     
     std::string scenenames[] = {"Scenes/end.json"};
     for (auto sceneName : scenenames) {

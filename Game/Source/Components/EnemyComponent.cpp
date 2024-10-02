@@ -12,7 +12,7 @@ void EnemyComponent::Initialize()
 	physics = owner->GetComponent<PhysicsComponent>();
 	animation = owner->GetComponent<TextureAnimationComponent>();
 
-	speed = random(5);
+	speed = (float)random(5);
 
 }
 
